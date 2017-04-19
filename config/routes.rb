@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  get 'tools/index'
 
-  get 'control/index'
+
+  get "tools", to: "tools#index"
+
+  get "control", to: "lends#index"
+  resources :lends
   root 'students#index'
   resources :students
   resources :tools

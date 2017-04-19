@@ -1,5 +1,6 @@
-<h1>Control#index</h1>
-<p>Find me in app/views/control/index.html.erb</p>
+<h1>Lends#index</h1>
+<p>Find me in app/views/lends/index.html.erb</p>
+
 
 <header>
   <nav>
@@ -29,15 +30,13 @@
   <%end%>
 </div>
 
-<%= form_tag("/control/index", method: 'get') do %>
+<%= form_tag("/lends/index", method: 'get') do %>
   <%= label_tag "Search for:" %>
   <%= text_field_tag "title" %>
   <%= submit_tag 'Search' %>
 <% end %>
 
-<!--%= @pro.each do |p| %>
-  <!--%= p.title %-->
-<!--% end %-->
+
 <div>
 <% @tools.each do |tool| %>
 <div class="field">
@@ -46,3 +45,15 @@
 </div>
 <%end%>
 </div>
+
+
+<%= form_for(@lends) do |f| %>
+  <div class="field">
+    <%= f.text_field :uid, placeholder: "Nombre", class: "form-control"%>
+  </div>
+
+
+  <div>
+    <%= f.submit "Guardar"%>
+  </div>
+<%end%>

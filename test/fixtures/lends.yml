@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  uid: MyString
   tool: one
   student: one
 
 two:
+  uid: MyString
   tool: two
   student: two

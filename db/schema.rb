@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418202337) do
+ActiveRecord::Schema.define(version: 20170419193721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "lends", force: :cascade do |t|
+    t.string   "uid"
     t.integer  "tool_id"
     t.integer  "student_id"
     t.datetime "created_at", null: false
@@ -38,7 +39,6 @@ ActiveRecord::Schema.define(version: 20170418202337) do
   create_table "tools", force: :cascade do |t|
     t.string   "title"
     t.integer  "quantity"
-    t.integer "tool_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
