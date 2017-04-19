@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417225517) do
+ActiveRecord::Schema.define(version: 20170418202337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lends", force: :cascade do |t|
+    t.integer  "tool_id"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_lends_on_student_id", using: :btree
+    t.index ["tool_id"], name: "index_lends_on_tool_id", using: :btree
+  end
 
   create_table "students", force: :cascade do |t|
     t.string   "code"
@@ -29,8 +38,11 @@ ActiveRecord::Schema.define(version: 20170417225517) do
   create_table "tools", force: :cascade do |t|
     t.string   "title"
     t.integer  "quantity"
+    t.integer "tool_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "lends", "students"
+  add_foreign_key "lends", "tools"
 end

@@ -3,6 +3,7 @@ class StudentsController < ApplicationController
     @students = Student.all
     @students = Student.new
   end
+
   def create
     @students = Student.new(student_params)
     @students.save

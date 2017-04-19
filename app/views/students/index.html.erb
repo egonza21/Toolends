@@ -21,16 +21,13 @@
   </div>
 <%end%>
 
-<div>
-  <p id="notice"><%= notice %></p>
+<div class="field">
+  <h1>Herramientas</h1>
+  <% @tools.each do |tool| %>
+  <div class="field">
+    <%= check_box_tag "tools[]", tool.id %>
+    <%= tool.title %>
+  </div>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @students.name %>
-  </p>
-
-  <p>
-    <strong>Code:</strong>
-    <%= @students.code %>
-  </p>
+  <%end%>
 </div>
