@@ -1,0 +1,79 @@
+-- Database: Toolends
+
+-- DROP DATABASE "Toolends";
+
+CREATE DATABASE "Toolends"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Spanish_Spain.1252'
+    LC_CTYPE = 'Spanish_Spain.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+-- Table: public."Lend"
+
+-- DROP TABLE public."Lend";
+
+CREATE TABLE public."Lend"
+(
+    "idLend" integer NOT NULL,
+    "idStudent" integer NOT NULL,
+    "idTool" integer NOT NULL,
+    CONSTRAINT "idLend" PRIMARY KEY ("idLend"),
+    CONSTRAINT "lendStudentFK" FOREIGN KEY ("idStudent")
+        REFERENCES public."Student" ("idStudent") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT "lendToolFK" FOREIGN KEY ("idTool")
+        REFERENCES public."Tool" ("idTool") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."Lend"
+    OWNER to postgres;
+
+-- Table: public."Student"
+
+-- DROP TABLE public."Student";
+
+CREATE TABLE public."Student"
+(
+    "idStudent" integer NOT NULL,
+    "nameStudent" character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    "celStudent" character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    "emailStudent" character varying(21) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "idStudent" PRIMARY KEY ("idStudent")
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."Student"
+    OWNER to postgres;
+
+-- Table: public."Tool"
+
+-- DROP TABLE public."Tool";
+
+CREATE TABLE public."Tool"
+(
+    "idTool" integer NOT NULL,
+    "nameTool" character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    "quantityTool" integer NOT NULL,
+    "descTool" character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT "idTool" PRIMARY KEY ("idTool")
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."Tool"
+    OWNER to postgres;
