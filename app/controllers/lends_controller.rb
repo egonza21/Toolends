@@ -39,10 +39,25 @@ class LendsController < ApplicationController
                       "Kit lego", "Destornillador", "Fuente", "Flexómetro", "Hexágonas", "Pie de rey"]
       @lends = Lend.all
       @lends = Lend.new
-      #@lends.uid = tag
+      @lends.uid = tag
       #@lends = Lend.search(params[:search])
     end
+    def show
+
+    end
     def create
+      @lends = Lend.new(lend_params)
+      @lends.save
+=begin
+      respond_to do |format|
+        if @lends.save
+          puts "Guardo"
+        else
+          puts "No guardo"
+        end
+      end
+=end
+=begin
     #  @students = @students.where("name = ?", "%#{params[:uid]}%")
       @students = @students.find_by(taguid: :uid)
       puts "----------estudiante -----------"
@@ -58,6 +73,7 @@ class LendsController < ApplicationController
       #end
       @lends.save
       redirect_to control_url
+=end
     end
 
 

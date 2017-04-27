@@ -16,13 +16,13 @@
   </nav>
 </header-->
 
-<div class="">
+<!--div class="">
   <% @students.each do |student| %>
     <%= student.name %>
     <%= student.code %>
     <%= student.taguid %>
   <%end%>
-</div>
+</div-->
 
 
 
@@ -34,31 +34,11 @@
     <%= f.text_field :uid, placeholder: "Nombre", class: "form-control"%>
   </div>
   <div class="field">
-    <h2>Herramientas más frecuentes</h2>
-    <% i=0 %>
-    <% @frecuentes.each do |fre| %>
-      <div class="field">
-        <%= check_box_tag "tools[]", i %>
-        <%= fre %>
-        <% i= i+1%>
-      </div>
-    <%end%>
-
-
-
+  <%= f.text_field :student_id, placeholder: "Código del estudiante", class: "form-control"%>
   </div>
-
-  <div>
-  <h2>Herramientas</h2>
-  <% @tools.each do |tool| %>
   <div class="field">
-    <%= check_box_tag "tools[]", tool.id %>
-    <%= tool.title %>
+    <%= f.text_field :tool_id, placeholder: "Herramienta", class: "form-control"%>
   </div>
-  <%end%>
-  </div>
-
-
   <div>
     <%= f.submit "Guardar"%>
   </div>
