@@ -40,6 +40,14 @@
     <%= f.text_field :tool_id, placeholder: "Herramienta", class: "form-control"%>
   </div>
   <div>
+  <% @tools.each do |tool| %>
+  <div class="field">
+    <%= check_box_tag "@herra[]", tool.id %>
+    <%= tool.title %>
+  </div>
+  <%end%>
+  </div>
+  <div>
     <%= f.submit "Guardar"%>
   </div>
 <%end%>

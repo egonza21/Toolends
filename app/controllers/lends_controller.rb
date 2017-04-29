@@ -39,15 +39,41 @@ class LendsController < ApplicationController
                       "Kit lego", "Destornillador", "Fuente", "Flexómetro", "Hexágonas", "Pie de rey"]
       @lends = Lend.all
       @lends = Lend.new
-      @lends.uid = tag
+    #  @lends.uid = tag
       #@lends = Lend.search(params[:search])
     end
     def show
 
     end
-    def create
-      @lends = Lend.new(lend_params)
+
+    def save_tool (tool_id)
+      @lends.tool_id = tool_id
+      #@lends.student_id = student_id
       @lends.save
+    end
+
+    def create
+      #@lends = Lend.new(uid: params[:lend][:uid],
+      #                    tool_id: params[:lend][:tool_id],
+      #                    student_id: params[:lend][:student_id])
+
+      @herra = params[:@herra]
+
+      i=0
+      while i < @herra.size do
+        @lends = Lend.new(uid: params[:lend][:uid],
+                            tool_id: @herra[i],
+                            student_id: params[:lend][:student_id])
+        #@lends.tool_id=@herra[i]
+        puts @lends.tool_id
+        @lends.save
+        i=i+1
+      end
+
+
+
+      #@lends.uid = uid
+
 =begin
       respond_to do |format|
         if @lends.save
