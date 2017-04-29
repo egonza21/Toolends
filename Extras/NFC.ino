@@ -5,7 +5,7 @@
 
     PN532_SPI interface(SPI, 10); // create a PN532 SPI interface with the SPI CS terminal located at digital pin 10
     NfcAdapter nfc = NfcAdapter(interface); // create an NFC adapter object
-    boolean success;
+    
     void setup(void) {
         Serial.begin(115200); // begin serial communication 115200
         //Serial.println("NDEF Reader");
@@ -16,9 +16,17 @@
         //Serial.println("\nScan an NFC tag\n");
         if (nfc.tagPresent()) // Do an NFC scan to see if an NFC tag is present
         {
+          // bool success = nfc.format();
            NfcTag tag = nfc.read();// read the NFC tag into an object, nfc.read() returns an NfcTag object.
-           String scannedUID = tag.getUidString(); 
-           Serial.print(scannedUID);// prints the NFC tags type, UID, and NDEF message (if available)
+           String scannedUID = tag.getUidString();
+           //char charBuf[12];
+           //scannedUID.toCharArray(charBuf, 12);
+          // for (int i =0;i<11;i++){
+           // Serial.println(scannedUID[i]);
+            //}
+          // scannedUID.remove(0, 14);
+           Serial.println(scannedUID);
+           // prints the NFC tags type, UID, and NDEF message (if available)
         }
         delay(500); // wait half a second (500ms) before scanning again (you may increment or decrement the wait time)
     }
