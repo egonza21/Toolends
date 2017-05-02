@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  uid: MyString
-  student: one
+  amount: 1
+  tool: one
+  lend: one
 
 two:
-  uid: MyString
-  student: two
+  amount: 1
+  tool: two
+  lend: two

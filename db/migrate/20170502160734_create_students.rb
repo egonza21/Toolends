@@ -4,7 +4,6 @@ class CreateStudents < ActiveRecord::Migration[5.0]
       t.string :code
       t.string :taguid
       t.string :name
-      t.string :lastname
       t.string :email
       t.string :cel
 
