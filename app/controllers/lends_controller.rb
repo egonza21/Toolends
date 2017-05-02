@@ -39,7 +39,7 @@ class LendsController < ApplicationController
                       "Kit lego", "Destornillador", "Fuente", "Flexómetro", "Hexágonas", "Pie de rey"]
       @lends = Lend.all
       @lends = Lend.new
-    #  @lends.uid = tag
+      @lends.uid = tag
       #@lends = Lend.search(params[:search])
     end
     def show

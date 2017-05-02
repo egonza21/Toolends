@@ -29,7 +29,7 @@
 
 
 
-<%= form_for(@lends) do |f| %>
+<%= form_for(@lends, remote: true, html: {id: "comments-form", :"data-type" => "json" }) do |f| %>
   <div class="field">
     <%= f.text_field :uid, placeholder: "Nombre", class: "form-control"%>
   </div>
