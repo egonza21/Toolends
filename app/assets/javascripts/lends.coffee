@@ -2,4 +2,4 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on "ajax:success", "form#comments-form", (ev,data) -> console.log data
+$(document).on "ajax:success", "form#lends-form", (ev,data) -> console.log data

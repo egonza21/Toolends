@@ -1,0 +1,28 @@
+<header>
+  <nav class="be-red white large-padding">
+    <!--div class="container-fluid"-->
+      <!--div class="navbar-header">
+        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span> toolends</a>
+      </div-->
+      <!--ul class="nav navbar-nav">
+        <li><%= link_to "Inicio" ,root_path %></li>
+        <li><%= link_to "Diseño" ,root_path  %></li>
+      </ul-->
+      <ul class="no-list row center-xs middle-xs">
+        <% if student_signed_in?%>
+          <li class="col-md"><%= link_to  destroy_student_session_path, method: :delete do %>
+            <span class="glyphicon glyphicon-log-in"></span> Cerrar sesión<%end%>
+          </li>
+        <%else%>
+        <li class="col-md"><%= link_to  new_student_registration_path do %>
+          <span class="glyphicon glyphicon-user"></span> Registrarse<%end%>
+        </li>
+        <li class="col-md"><%= link_to  new_student_session_path do %>
+          <span class="glyphicon glyphicon-log-in"></span> Iniciar sesión<%end%>
+        </li>
+
+        <%end%>
+      </ul>
+    <!--/div-->
+  </nav>
+</header>

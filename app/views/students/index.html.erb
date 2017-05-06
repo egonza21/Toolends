@@ -1,32 +1,33 @@
-<h1>Students</h1>
-<div class="container">
 
-</div>
-<%= form_for(@students) do |f| %>
-  <div class="field">
-  <%= f.text_field :code, placeholder: "Código del carnet", class: "form-control"%>
-  </div>
-  <div class="field">
-    <%= f.text_field :name, placeholder: "Nombre", class: "form-control"%>
-  </div>
-  <div class="field">
-      <%= f.text_field :email, placeholder: "Correo universitario", class: "form-control"%>
-  </div>
-  <div class="field">
-      <%= f.text_field :cel, placeholder: "Celular", class: "form-control"%>
-  </div>
+      <h1>Students</h1>
+      <div class="container">
 
-    <%= f.submit "Guardar"%>
-  </div>
-<%end%>
+      </div>
+    <%= form_for(@students) do |f| %>
+      <div class="field">
+      <%= f.text_field :code, placeholder: "Código del carnet", class: "form-control"%>
+      </div>
+      <div class="field">
+        <%= f.text_field :name, placeholder: "Nombre", class: "form-control"%>
+      </div>
+      <div class="field">
+          <%= f.text_field :email, placeholder: "Correo universitario", class: "form-control"%>
+      </div>
+      <div class="field">
+          <%= f.text_field :cel, placeholder: "Celular", class: "form-control"%>
+      </div>
 
-<div class="field">
-  <h1>Herramientas</h1>
-  <% @tools.each do |tool| %>
-  <div class="field">
-    <%= check_box_tag "tools[]", tool.id %>
-    <%= tool.title %>
-  </div>
+        <%= f.submit "Guardar"%>
+      </div>
+    <%end%>
 
-  <%end%>
-</div>
+    <div class="field">
+      <h1>Herramientas</h1>
+      <% @tools.each do |tool| %>
+      <div class="field">
+        <%= check_box_tag "tools[]", tool.id %>
+        <%= tool.title %>
+      </div>
+
+      <%end%>
+    </div>
