@@ -58,7 +58,9 @@ div {
   background-color: red;
   display: table;
 }
-
+.let{
+  color: white;
+}
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -92,11 +94,37 @@ label {
   margin-top: 1em;
 }
 
+.form-control{
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  width: 100%;
+  display: block;
+  padding: 10px 0px;
+  font-size: 1.2em;
+
+}
+
+.center{
+  text-align: center;
+}
+
+.btn{
+  background-color: #333;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  text-decoration-color: white;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 10px 12px;
+}
+
 .large-padding{
   padding: 8px 5px;
 }
 
-.top-space{
+.top-space, .actions{
   margin-top: 1em;
 }
 .text-left{
@@ -108,15 +136,7 @@ label {
 #logo{
   font-size: 1.2em;
 }
-.btn{
-  background-color: inherit;
-  border: none;
-  outline: none;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-size: 1.2em;
-  padding: 10px 12px;
-}
+
 .red{
   color: #340BFF !important;
 }
@@ -125,15 +145,4 @@ label {
 }
 .be-red{
   background-color: #340BFF;
-}
-
-.form-control{
-  border: none;
-  border-bottom: 1px solid;
-  outline: none;
-  width: 100%;
-  display: block;
-  padding: 10px 0px;
-  font-size: 1.2em;
-
 }
