@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-  devise_for :students#, :controllers => { :registrations => "students/resgistration"}
-=======
+  #devise_for :students#, :controllers => { :registrations => "students/resgistration"}
+
   devise_for :students
->>>>>>> 3968e280ed5cd3d6d1f2e9b52f355d1b0e53c752
+
   get "tools", to: "tools#index"
 
   get "control", to: "lends#index"
