@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :students
   get "tools", to: "tools#index"
 
