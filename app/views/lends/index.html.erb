@@ -6,6 +6,7 @@
   <%= submit_tag 'Search' %>
 <% end %>
 
+
 <!--header>
   <nav>
     <ul>
@@ -31,7 +32,7 @@
 
 <%= form_for(@lends, remote: true, html: {id: "comments-form", :"data-type" => "json" }) do |f| %>
   <div class="field">
-    <%= f.text_field :uid, placeholder: "Nombre", class: "form-control"%>
+    <%= f.text_field :uid, placeholder: "tagUID", class: "form-control"%>
   </div>
   <div class="field">
   <!--%= f.text_field :student_id, placeholder: "Código del estudiante", class: "form-control"%-->

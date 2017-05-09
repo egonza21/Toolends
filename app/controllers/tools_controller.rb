@@ -1,7 +1,18 @@
 class ToolsController < ApplicationController
-  def index
-    @tools = Tool.new
-  end
+
+
+
+def index
+  @tools = Tool.all
+  @tools = Tool.search(params[:search])
+end
+
+
+
+
+  #def new
+  #  @tools = Tool.new
+#  end
   def create
     @tools = Tool.new(tool_params)
     if @tools.save

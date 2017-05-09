@@ -37,6 +37,8 @@ class LendsController < ApplicationController
     def index
       @frecuentes = ["Kit electrónica", "Cautín", "Pinza", "Pela cable", "Corta frío", "Multímetro",
                       "Kit lego", "Destornillador", "Fuente", "Flexómetro", "Hexágonas", "Pie de rey"]
+                    
+
       @lends = Lend.all
       @lends = Lend.new
       @lends.uid = tag

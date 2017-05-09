@@ -1,21 +1,55 @@
 <h1>Tools</h1>
+<!--div class="">
+  <form class="field" action="index.html" method="post">
+    <input type="text" name="q" <%= @q %> >
+    <button type="submit" name="Buscar"></button>
+  </form>
+</div-->
+<div class="container">
 
 
+    <div class="col-md-6 ">
 
-<%= form_for(@tools) do |f| %>
+      <p>"hola"</p>
+      <div class="field">
+        <% form_tag tools_path, :method => 'get' do %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            
+            <%= submit_tag "Search sd", :name => nil %>
+          </p>
+        <% end %>
+
+      </div>
+    </div>
+
+</div>
+
+<div class="container">
+  <div class="row">
+
+
+  <div class="col-md-6">
+    <div class="field">
+      <%= form_for Tool.new do |f| %>
+        <div class="field">
+          <%= f.text_field :title, placeholder: "Nombre", class: "form-control"%>
+        </div>
+        <div class="field">
+          <%= f.text_field :quantity, placeholder: "Número de herramientas", class: "form-control"%>
+        </div>
+
+        <div>
+          <%= f.submit "Guardar"%>
+        </div>
+      <%end%>
+    </div>
+  </div>
+
+
   <div class="field">
-    <%= f.text_field :title, placeholder: "Nombre", class: "form-control"%>
-  </div>
-  <div class="field">
-    <%= f.text_field :quantity, placeholder: "Número de herramientas", class: "form-control"%>
-  </div>
+    <input type="button" value="Prestar herramientas" onClick="window.location = 'lends';">
 
-  <div>
-    <%= f.submit "Guardar"%>
   </div>
-<%end%>
-
-<div class="field">
-  <input type="button" value="Prestar herramientas" onClick="window.location = 'lends';">
-
+  </div>
 </div>
