@@ -1,6 +1,6 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #7CB9E8;
+  color: white;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -12,6 +12,7 @@ p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
+  color: white;
 }
 
 pre {
@@ -20,7 +21,7 @@ pre {
   font-size: 11px;
 }
 
-a {
+/*a {
   color: #000;
 
   &:visited {
@@ -31,7 +32,7 @@ a {
     color: #fff;
     background-color: #000;
   }
-}
+}*/
 
 th {
   padding-bottom: 5px;
@@ -58,9 +59,8 @@ div {
   background-color: red;
   display: table;
 }
-.let{
-  color: white;
-}
+
+
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -130,9 +130,10 @@ label {
 .text-left{
   text-align: center;
 }
-.white{
+/*.white{
   color: #333;
-}
+}*/
+
 #logo{
   font-size: 1.2em;
 }
@@ -146,3 +147,10 @@ label {
 .be-red{
   background-color: #340BFF;
 }
+
+.nombre {
+  font-size: 20px; 
+  padding: 15px 0px 0px 50px;
+  color: #0048BA;
+} 
+
