@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #devise_for :students#, :controllers => { :registrations => "students/resgistration"}
 
   devise_for :students
-
+  get "lists", to: "lists#index"
   get "tools", to: "tools#index"
 
   get "control", to: "lends#index"
