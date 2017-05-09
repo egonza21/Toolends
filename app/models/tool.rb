@@ -2,7 +2,7 @@ class Tool < ApplicationRecord
   has_many :lends_tool
 
   validates :title, presence: true
-<<<<<<< HEAD
+
 
 
 
@@ -17,7 +17,4 @@ class Tool < ApplicationRecord
 
 
 
-
-=======
->>>>>>> 88a514bdc8b65a563dc461b4230311655164e579
 end
