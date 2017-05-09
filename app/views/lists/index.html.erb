@@ -1,0 +1,57 @@
+
+<tr>
+  <td class="bloque" width="10">&nbsp;</td>
+   <td class="bloque" width="200">
+    <table width="540" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td class="bloque" width="250">
+          <div id="filtertext">&nbsp;</div>
+            <h1 class="titulo" >Herramientas disponibles</h1>
+          <select id="Tools" multiple="multiple" size="10" class="selectMultiple">
+            <option value="0001">Arduino</option>
+            <option value="0002">RaspBerry Pi</option>
+            <option value="0003">Lego Set</option>
+            <option value="0001">Arduino</option>
+            <option value="0002">RaspBerry Pi</option>
+            <option value="0003">Lego Set</option>
+            <option value="0001">Arduino</option>
+            <option value="0002">RaspBerry Pi</option>
+            <option value="0003">Lego Set</option>
+            <option value="0001">Arduino</option>
+            <option value="0002">RaspBerry Pi</option>
+            <option value="0003">Lego Set</option>
+            <option value="0001">Arduino</option>
+            <option value="0002">RaspBerry Pi</option>
+            <option value="0003">Lego Set</option>
+            <option value="0001">Arduino</option>
+            <option value="0002">RaspBerry Pi</option>
+            <option value="0003">Lego Set</option>
+        </td>
+        <td class="bloque" width="40" valign="middle" align="center">
+        <br>
+          <a href="#"><img src="/ei/imagenes/iconos/flechaDer.gif" title="Mover a la Derecha" border="0"></a>
+        <br>
+          <a href="#"><img src="/ei/imagenes/iconos/todoIzq.gif" title="Devolver todo" border="0"></a>
+        <br>
+          <a href="#"><img src="/ei/imagenes/iconos/flechaIzq.gif" title="Devolver seleccionadas" border="0"></a>
+        <br>
+        </td>
+        <td class="bloque" width="250">
+          <br>
+            <h1 class="titulo">Herramientas Seleccionadas</h1>
+            <select id="ToolsSelected" multiple="multiple" size="10" class="selectMultiple">
+            <option value="0005">Lego Mindstorm</option>
+        </td>
+      </tr>
+      <tr>
+        <td class="bloque" colspan="3">
+          <input name="regexp" onkeyup="filter.set(this.form.regexp.value)">
+          <input onclick="filter.set(this.form.regexp.value)" value="Buscar" type="button">
+          <input onclick="filter.reset();this.form.regexp.value=''" value="Ver Todos" type="button"><br><br>
+          <p>
+          </p>
+        </td>
+      </tr>                  
+    </tbody></table>
+  </td>
+</tr>
