@@ -17,17 +17,19 @@
   </nav>
 </header-->
 
-<!--div class="">
-  <% @students.each do |student| %>
-    <%= student.name %>
-    <%= student.code %>
-    <%= student.taguid %>
-  <%end%>
+<!--div class=""-->
+  <!--% @students.each do |student| %-->
+    <!--%= student.name %-->
+    <!--%= student.code %-->
+    <!--%= student.taguid %-->
+  <!--%end%>
 </div-->
 
+<!--% unless @lend.student.nil? %-->
+<%= current_student.id %>
+<%= current_student.name %>
 
-
-
+<!--%end%-->
 
 
 <%= form_for(@lends, remote: true, html: {id: "comments-form", :"data-type" => "json" }) do |f| %>

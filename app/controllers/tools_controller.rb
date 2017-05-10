@@ -4,7 +4,7 @@ class ToolsController < ApplicationController
 
 def index
   @tools = Tool.all
-  @tools = Tool.search(params[:search])
+#  @tools = Tool.search(params[:search])
 end
 
 

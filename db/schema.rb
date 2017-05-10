@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504230002) do
+ActiveRecord::Schema.define(version: 20170509233252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170504230002) do
     t.string   "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "student_id"
+    t.index ["student_id"], name: "index_lends_on_student_id", using: :btree
   end
 
   create_table "students", force: :cascade do |t|
@@ -61,4 +63,5 @@ ActiveRecord::Schema.define(version: 20170504230002) do
 
   add_foreign_key "lend_tools", "lends"
   add_foreign_key "lend_tools", "tools"
+  add_foreign_key "lends", "students"
 end

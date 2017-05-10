@@ -1,7 +1,7 @@
 class LendsController < ApplicationController
 
     before_action :get_tools
-    before_action :get_students
+  #  before_action :get_students
 
       def tag
         #ban = true
@@ -37,11 +37,11 @@ class LendsController < ApplicationController
     def index
       @frecuentes = ["Kit electrónica", "Cautín", "Pinza", "Pela cable", "Corta frío", "Multímetro",
                       "Kit lego", "Destornillador", "Fuente", "Flexómetro", "Hexágonas", "Pie de rey"]
-                    
+
 
       @lends = Lend.all
       @lends = Lend.new
-      @lends.uid = tag
+      #@lends.uid = tag
       #@lends = Lend.search(params[:search])
     end
     def show
@@ -54,6 +54,13 @@ class LendsController < ApplicationController
       @lends.save
     end
 
+    def create
+      @lend = current_student.lends.new(lend_params)
+      @lend.save
+      redirect_to @lend
+    end
+
+=begin  Este si sirve
     def create
       #@lends = Lend.new(uid: params[:lend][:uid],
       #                    tool_id: params[:lend][:tool_id],
@@ -72,7 +79,7 @@ class LendsController < ApplicationController
         i=i+1
       end
 
-
+=end
 
       #@lends.uid = uid
 
@@ -102,26 +109,23 @@ class LendsController < ApplicationController
       @lends.save
       redirect_to control_url
 =end
-    end
+    #end
 
 
 
     private
     def lend_params
-      params.require(:lend).permit(:uid, :student_id, :tool_id)
+      params.require(:lend).permit(:uid)
     end
     def get_tools
       @tools = Tool.all
     end
-    def get_students
-      @students = Student.all
-    end
+    #def get_students
+    #  @students = Student.all
+    #end
 
-    def show
-      @students = @students.where("uid ILIKE ?", "%#{params[:taguid]}%")
+    #def show
+      #@students = @students.where("uid ILIKE ?", "%#{params[:taguid]}%")
       #@pro = @tools.title
-    end
-
-
-
+    #end
 end
