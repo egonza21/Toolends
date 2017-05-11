@@ -7,26 +7,15 @@
       <tbody><tr>
         <td class="bloque" width="250">
           <div id="filtertext">&nbsp;</div>
-            <h1 class="titulo" >Herramientas disponibles</h1>
+            <h2 class="titulo" >Herramientas disponibles</h2>
           <select id="Tools" multiple="multiple" size="10" class="selectMultiple">
-            <option value="0001">Arduino</option>
-            <option value="0002">RaspBerry Pi</option>
-            <option value="0003">Lego Set</option>
-            <option value="0001">Arduino</option>
-            <option value="0002">RaspBerry Pi</option>
-            <option value="0003">Lego Set</option>
-            <option value="0001">Arduino</option>
-            <option value="0002">RaspBerry Pi</option>
-            <option value="0003">Lego Set</option>
-            <option value="0001">Arduino</option>
-            <option value="0002">RaspBerry Pi</option>
-            <option value="0003">Lego Set</option>
-            <option value="0001">Arduino</option>
-            <option value="0002">RaspBerry Pi</option>
-            <option value="0003">Lego Set</option>
-            <option value="0001">Arduino</option>
-            <option value="0002">RaspBerry Pi</option>
-            <option value="0003">Lego Set</option>
+            <% @tools.each do |tool| %>
+            <div class="field">
+              <!--% option value=tool.id tool.title%--> <!--%end%-->
+              <option value = tool.id> <%= tool.title %></option>
+            </div>
+            <%end%>
+
         </td>
         <td class="bloque" width="40" valign="middle" align="center">
         <br>
@@ -39,20 +28,20 @@
         </td>
         <td class="bloque" width="250">
           <br>
-            <h1 class="titulo">Herramientas Seleccionadas</h1>
+            <h2 class="titulo">Herramientas Seleccionadas</h2>
             <select id="ToolsSelected" multiple="multiple" size="10" class="selectMultiple">
-            <option value="0005">Lego Mindstorm</option>
+
         </td>
       </tr>
       <tr>
-        <td class="bloque" colspan="3">
+        <td class="bloque field" colspan="3">
           <input name="regexp" onkeyup="filter.set(this.form.regexp.value)">
-          <input onclick="filter.set(this.form.regexp.value)" value="Buscar" type="button">
-          <input onclick="filter.reset();this.form.regexp.value=''" value="Ver Todos" type="button"><br><br>
+          <input onclick="filter.set(this.form.regexp.value)" value="Buscar" type="button" class="btn let">
+          <input onclick="filter.reset();this.form.regexp.value=''" value="Ver Todos" type="button" class="btn let"><br><br>
           <p>
           </p>
         </td>
-      </tr>                  
+      </tr>
     </div>
     </tbody></table>
   </td>

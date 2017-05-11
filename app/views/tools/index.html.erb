@@ -5,25 +5,25 @@
     <button type="submit" name="Buscar"></button>
   </form>
 </div-->
-<div class="container">
+<!-- <div class="container"> -->
 
 
-    <div class="col-md-6 ">
+    <!-- <div class="col-md-6 ">
 
       <p>"hola"</p>
       <div class="field">
         <% form_tag tools_path, :method => 'get' do %>
           <p>
             <%= text_field_tag :search, params[:search] %>
-            
+
             <%= submit_tag "Search sd", :name => nil %>
           </p>
         <% end %>
 
       </div>
-    </div>
+    </div> -->
 
-</div>
+<!-- </div> -->
 
 <div class="container">
   <div class="row">
@@ -31,24 +31,40 @@
 
   <div class="col-md-6">
     <div class="field">
-      <%= form_for Tool.new do |f| %>
+      <%= form_for @tool do |f| %>
+      <!-- <div class="field">
+        <%= f.text_field :id, placeholder: "Id", autocomplete: "on", class: "form-control"%>
+      </div> -->
         <div class="field">
-          <%= f.text_field :title, placeholder: "Nombre", class: "form-control"%>
+          <%= f.text_field :title, placeholder: "Nombre", autocomplete: "on", class: "form-control"%>
         </div>
+
         <div class="field">
           <%= f.text_field :quantity, placeholder: "Número de herramientas", class: "form-control"%>
         </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <%= f.submit "Guardar", name: "Guardar" , class:"btn let"%>
+            </div>
 
-        <div>
-          <%= f.submit "Guardar"%>
+            <div class="col-md-2">
+              <%= f.submit "Buscar", name: "Buscar" , class:"btn let"%>
+            </div>
+            <div class="col-md-3">
+                <%= f.submit "Editar", name: "Editar" , class:"btn let"%>
+            </div>
+          </div>
+
         </div>
+
       <%end%>
     </div>
   </div>
 
 
   <div class="field">
-    <input type="button" value="Prestar herramientas" onClick="window.location = 'lends';">
+    <input type="button" value="Prestar herramientas" onClick="window.location = 'lends';"  class="btn let">
 
   </div>
   </div>

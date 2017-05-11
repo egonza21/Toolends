@@ -1,10 +1,10 @@
 <h1>Lends</h1>
 
-<%= form_tag("/lends/index", method: 'get') do %>
-  <%= label_tag "Search for:" %>
-  <%= text_field_tag :Search, params[:Search] %>
-  <%= submit_tag 'Search' %>
-<% end %>
+ <!--%= form_tag("/lends/index", method: 'get') do %-->
+  <!--%= label_tag "Search for:" %-->
+  <!--%= text_field_tag :Search, params[:Search] %-->
+  <!--%= submit_tag 'Search' %-->
+<!--% end %-->
 
 
 <!--header>
@@ -26,16 +26,26 @@
 </div-->
 
 <!--% unless @lend.student.nil? %-->
-<%= current_student.id %>
-<%= current_student.name %>
+<!--%= current_student.id %> -->
+ <!--%= current_student.name %> -->
 
 <!--%end%-->
 
 
 <%= form_for(@lends, remote: true, html: {id: "comments-form", :"data-type" => "json" }) do |f| %>
-  <div class="field">
-    <%= f.text_field :uid, placeholder: "tagUID", class: "form-control"%>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 field">
+        <%= f.text_field :uid, placeholder: "tagUID", class: "form-control"%>
+
+      </div>
+      <div class="col-md-4 field">
+          <%= f.submit "Guardar" , class:"btn let"%>
+      </div>
+    </div>
+
   </div>
+
   <div class="field">
   <!--%= f.text_field :student_id, placeholder: "Código del estudiante", class: "form-control"%-->
   </div>
@@ -43,14 +53,64 @@
     <!--%= f.text_field :tool_id, placeholder: "Herramienta", class: "form-control"%-->
   </div>
   <div>
-  <% @tools.each do |tool| %>
-  <div class="field">
-    <%= check_box_tag "@herra[]", tool.id %>
-    <%= tool.title %>
+  <!--% @tools.each do |tool| %-->
+  <!--div class="field"-->
+    <!--%= check_box_tag "@herra[]", tool.id %-->
+    <!--%= tool.title %-->
+  <!--/div-->
+  <!--%end%> -->
+  <tr>
+    <td class="bloque" width="10">&nbsp;</td>
+     <td class="bloque" width="200">
+      <div style="overflow-x:auto;">
+      <table width="540" cellspacing="0" cellpadding="0" border="0">
+        <tbody><tr>
+          <td class="bloque" width="250">
+            <div id="filtertext">&nbsp;</div>
+              <h2 class="titulo" >Herramientas disponibles</h2>
+            <select id="Tools" multiple="multiple" size="10" class="selectMultiple">
+              <% @tools.each do |tool| %>
+              <div class="field">
+                <!--% option value=tool.id tool.title%--> <!--%end%-->
+                <option value = tool.id> <%= tool.title %></option>
+              </div>
+              <%end%>
+
+          </td>
+          <td class="bloque" width="40" valign="middle" align="center">
+          <br>
+            <a href="#"><img src="/ei/imagenes/iconos/flechaDer.gif" title="Mover a la Derecha" border="0"></a>
+          <br>
+            <a href="#"><img src="/ei/imagenes/iconos/todoIzq.gif" title="Devolver todo" border="0"></a>
+          <br>
+            <a href="#"><img src="/ei/imagenes/iconos/flechaIzq.gif" title="Devolver seleccionadas" border="0"></a>
+          <br>
+          </td>
+          <td class="bloque" width="250">
+            <br>
+              <h2 class="titulo">Herramientas Seleccionadas</h2>
+              <select id="ToolsSelected" multiple="multiple" size="10" class="selectMultiple">
+              
+          </td>
+        </tr>
+        <tr>
+          <td class="bloque field" colspan="3">
+            <input name="regexp" onkeyup="filter.set(this.form.regexp.value)">
+            <input onclick="filter.set(this.form.regexp.value)" value="Buscar" type="button" class="btn let">
+            <input onclick="filter.reset();this.form.regexp.value=''" value="Ver Todos" type="button" class="btn let"><br><br>
+            <p>
+            </p>
+          </td>
+        </tr>
+      </div>
+      </tbody></table>
+    </td>
+  </tr>
+
+
+
+
+
   </div>
-  <%end%>
-  </div>
-  <div>
-    <%= f.submit "Guardar"%>
-  </div>
+
 <%end%>

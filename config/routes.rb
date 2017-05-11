@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :lends
   #root 'students#index'
   #resources :students
-  root  'tools#index'
+  root  'lists#index'
   resources :tools
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
