@@ -39,8 +39,17 @@
         <%= f.text_field :uid, placeholder: "tagUID", class: "form-control"%>
 
       </div>
+      <div class="col-md-1 field">
+          <%= f.submit "Buscar", formaction: student_name_path ,class:"btn let"%>
+
+      </div>
+      <div class="col-md-7 field">
+          <%= f.submit "Guardar", class:"btn let"%>
+
+      </div>
       <div class="col-md-4 field">
-          <%= f.submit "Guardar" , class:"btn let"%>
+        <%= f.text_field :student_id, placeholder: "Nombre", value: @student_name,class: "form-control", :readonly => true%>
+
       </div>
     </div>
 
@@ -79,9 +88,9 @@
           </td>
           <td class="bloque" width="40" valign="middle" align="center">
           <br>
-            <a href="#"><img src="/ei/imagenes/iconos/flechaDer.gif" title="Mover a la Derecha" border="0"></a>
+            <a href="#"> <!--img src="/ei/imagenes/iconos/flechaDer.gif" title="Mover a la Derecha" border="0"--></a>
           <br>
-            <a href="#"><img src="/ei/imagenes/iconos/todoIzq.gif" title="Devolver todo" border="0"></a>
+            <a href="#"><img src="/images/flechaDer.png" title="Devolver todo" border="0"></a>
           <br>
             <a href="#"><img src="/ei/imagenes/iconos/flechaIzq.gif" title="Devolver seleccionadas" border="0"></a>
           <br>
@@ -90,7 +99,7 @@
             <br>
               <h2 class="titulo">Herramientas Seleccionadas</h2>
               <select id="ToolsSelected" multiple="multiple" size="10" class="selectMultiple">
-              
+
           </td>
         </tr>
         <tr>

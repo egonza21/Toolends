@@ -3,6 +3,13 @@ class LendsController < ApplicationController
     before_action :get_tools
   #  before_action :get_students
 
+  def find_student
+    @student_tag = params[:lend][:uid]
+    @student_name = Student.where('taguid = ?', @student_tag).select("name")
+    @student_name = @student_name.find(1).name
+    redirect_to @lend
+  end
+
       def tag
         #ban = true
         puts "entro"
@@ -55,9 +62,9 @@ class LendsController < ApplicationController
     end
 
     def create
-      @lend = current_student.lends.new(lend_params)
-      @lend.save
-      redirect_to @lend
+        @lend = current_student.lends.new(lend_params)
+        @lend.save
+        redirect_to @lend
     end
 
 =begin  Este si sirve
