@@ -4,11 +4,20 @@ class LendsController < ApplicationController
   #  before_action :get_students
 
   def find_student
-    @student_tag = params[:lend][:uid]
+    #@student_tag = params[:lend][:uid]
+    @student_tag = @lends.uid
     @student_name = Student.where('taguid = ?', @student_tag).select("name")
-    @student_name = @student_name.find(1).name
-    redirect_to @lend
+    #@hola = @student_name.to_a()
+    #puts @hola
+    return @student_name.name
+    #@student_name = @student_name.find(1).name
+    #@name = @student_name.find(1).name
+    #@student.name = @student_name.find(1).name
+    #redirect_to "lends/index"
+
   end
+
+
 
       def tag
         #ban = true
@@ -48,8 +57,13 @@ class LendsController < ApplicationController
 
       @lends = Lend.all
       @lends = Lend.new
-      #@lends.uid = tag
+      @lends.uid = tag
       #@lends = Lend.search(params[:search])
+      if @lends.uid
+        @name = find_student
+      else
+        @name = "Fallo"
+      end
     end
     def show
 
