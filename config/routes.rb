@@ -19,9 +19,14 @@ Rails.application.routes.draw do
 
   get "control", to: "lends#index"
 
-  post "student_name", to: "lends#find_student"
-
-  resources :lends
+  #post "student_name", to: "lends#find_student"
+  #get "student_name", to: "lends#find_student"
+  resources :lends do
+    collection do
+      get :find_student
+    end
+  end
+  #resources :lends
   #root 'students#index'
   #resources :students
   #root  'lists#index'

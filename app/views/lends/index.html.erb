@@ -40,7 +40,7 @@
 
       </div>
       <div class="col-md-1 field">
-          <%= f.submit "Buscar", formaction: student_name_path ,class:"btn let"%>
+          <%= link_to "Buscar", find_student_lends_path ,class:"btn let"%>
 
       </div>
       <div class="col-md-7 field">
@@ -48,10 +48,12 @@
 
       </div>
       <div class="col-md-4 field">
-      
+
         <%= f.text_field :name, placeholder: "Nombre", value: @name, class: "form-control", :readonly => true%>
 
       </div>
+
+
     </div>
 
   </div>
@@ -124,3 +126,8 @@
   </div>
 
 <%end%>
+
+
+<form>
+    <%= link_to "Buscar", find_student_lends_path , :class => 'btn btn-primary'%> # you can add btn class if you are using bootstarp
+</form>

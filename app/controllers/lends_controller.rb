@@ -6,20 +6,25 @@ class LendsController < ApplicationController
 
 
   def find_student
+    puts Lend.all
     if @lends.uid.length == 11
+      puts :prueba
+      puts @lends.uid
       @student_tag = @lends.uid
+      puts @student_tag
       @student_name = Student.where('taguid = ?', @student_tag).select("name")
       @student_name.each do |student|
-        return student.name
+        @name = student.name
 
       end
-    else
-      @student_tag = @lends.uid
-      @student_name = Student.where('code = ?', @student_tag).select("name")
-      @student_name.each do |student|
-        return student.name
 
-      end
+    #else
+      # @student_tag = @lends.uid
+      # @student_name = Student.where('code = ?', @student_tag).select("name")
+      # @student_name.each do |student|
+      #   return student.name
+      #
+      # end
     end
 
 
@@ -76,13 +81,14 @@ class LendsController < ApplicationController
 
       @lends = Lend.all
       @lends = Lend.new
+      @student = Lend.all
       @lends.uid = tag
 
-      if @lends.uid
-        @name = find_student
-      else
-        @name = "Digitar código"
-      end
+      # if @lends.uid
+      #   @name = find_student
+      # else
+      #   @name = "Digitar código"
+      # end
     end
     def show
 
