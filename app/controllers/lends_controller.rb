@@ -2,46 +2,45 @@ class LendsController < ApplicationController
 
     before_action :get_tools
   #  before_action :get_students
-#@student_tag = params[:lend][:uid]
-
 
   def find_student
-    puts Lend.all
-    if @lends.uid.length == 11
-      puts :prueba
-      puts @lends.uid
+
+    if @bandera
       @student_tag = @lends.uid
-      puts @student_tag
+      arreglo = [@student_tag]
       @student_name = Student.where('taguid = ?', @student_tag).select("name")
       @student_name.each do |student|
         @name = student.name
-
+        puts @name
+        @bandera = false
+        return @name
+      end
+    else
+      @student_code = params[:lend][:uid]
+      @student_name = Student.where('code = ?', @student_code).select("name")
+      @student_ide = Student.where('code = ?', @student_code)
+      @student_ide.each do |student|
+        puts student.id
+        puts student.name
+        puts "con code-----"
+        #puts @name
+        #return @name
       end
 
-    #else
-      # @student_tag = @lends.uid
-      # @student_name = Student.where('code = ?', @student_tag).select("name")
-      # @student_name.each do |student|
-      #   return student.name
-      #
-      # end
+      puts "Hola"
+
+      #puts session[:prueba]
+
+      @student_ide.update({taguid:session[:prueba]})
+      puts "Hola 2"
+      redirect_to @lend
     end
+    #
 
 
 
-
+    #redirect_to @lend
   end
-    #@hola = @student_name.to_a()
-    #puts @hola
-
-    #@student_name = @student_name.find(1).name
-    #@name = @student_name.find(1).name
-    #@student.name = @student_name.find(1).name
-    #redirect_to "lends/index"
-
-
-
-
 
       def tag
         #ban = true
@@ -63,6 +62,7 @@ class LendsController < ApplicationController
             if tagUID.empty?
                ban= true
             else
+              session[:prueba] = tagUID
               return tagUID
             end
 
@@ -81,14 +81,18 @@ class LendsController < ApplicationController
 
       @lends = Lend.all
       @lends = Lend.new
-      @student = Lend.all
       @lends.uid = tag
 
-      # if @lends.uid
-      #   @name = find_student
-      # else
-      #   @name = "Digitar código"
-      # end
+      if @lends.uid
+        @prueba = [@lends.uid]
+        puts @prueba
+        @bandera = true
+        @name = find_student
+      else
+        @name = "Digitar código"
+      end
+
+      #@lends = Lend.search(params[:search])
     end
     def show
 
