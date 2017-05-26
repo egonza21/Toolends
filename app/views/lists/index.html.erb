@@ -1,49 +1,6 @@
 
-<tr>
-  <td class="bloque" width="10">&nbsp;</td>
-   <td class="bloque" width="200">
-    <div style="overflow-x:auto;">
-    <table width="540" cellspacing="0" cellpadding="0" border="0">
-      <tbody><tr>
-        <td class="bloque" width="250">
-          <div id="filtertext">&nbsp;</div>
-            <h2 class="titulo" >Herramientas disponibles</h2>
-          <select id="Tools" multiple="multiple" size="10" class="selectMultiple">
-            <% @tools.each do |tool| %>
-            <div class="field">
-              <!--% option value=tool.id tool.title%--> <!--%end%-->
-              <option value = tool.id> <%= tool.title %></option>
-            </div>
-            <%end%>
-
-        </td>
-        <td class="bloque" width="40" valign="middle" align="center">
-        <br>
-          <a href="#"> <%= image_tag "flechaDer.png"%></a>
-        <br>
-          <a href="#"> <%= image_tag "FlechaIzq.jpg"%></a>
-        <br>
-          <a href="#"> <%= image_tag "flechaIzqDoble.svg"%>
-            <!--img src="/flechaDer.png" title="Devolver todo" border="0"--></a>
-        <br>
-        </td>
-        <td class="bloque" width="250">
-          <br>
-            <h2 class="titulo">Herramientas Seleccionadas</h2>
-            <select id="ToolsSelected" multiple="multiple" size="10" class="selectMultiple">
-
-        </td>
-      </tr>
-      <tr>
-        <td class="bloque field" colspan="3">
-          <input name="regexp" onkeyup="filter.set(this.form.regexp.value)">
-          <input onclick="filter.set(this.form.regexp.value)" value="Buscar" type="button" class="btn let">
-          <input onclick="filter.reset();this.form.regexp.value=''" value="Ver Todos" type="button" class="btn let"><br><br>
-          <p>
-          </p>
-        </td>
-      </tr>
-    </div>
-    </tbody></table>
-  </td>
-</tr>
+<div class="list-group">
+<% @tools.each do |tool| %>
+   <a href="#" class="list-group-item"><%= tool.title %><span class="badge"> <%= tool.quantity%> </span></a>
+<%end%>
+</div>

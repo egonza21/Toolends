@@ -1,8 +1,4 @@
-body {
-	background-color: green ;
-}
-
-
+ 
 .selectMultiple {
 	border: 1px solid #ccc;
     width: 200px;
@@ -12,7 +8,7 @@ body {
     background-color: #7CB9E8;
 }
 
-#Tools, #ToolsSelected {
+.list-group-item {
 	color: black ;
 }
 
