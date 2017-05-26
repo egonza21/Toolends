@@ -33,7 +33,18 @@ end
     #   end
     # end
   end
+  def search_tools
+    @tool = Tool.where('title = ?', params[:title])
+    @tool.each do |t|
+      return t.quantity
+    end
+    puts "Buscar"
+    redirect_to tools_url
+  end
 
+  def update_tool
+    puts "Editar"
+  end
 
   def create
 

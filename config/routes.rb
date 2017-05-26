@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get "control", to: "lends#index"
 
   post "student_name", to: "lends#find_student"
+  post "edit_tool", to: "tools#update_tool"
+  post "search_tool", to: "tools#search_tools"
   #get "student_name", to: "lends#find_student"
   # resources :lends do
   #   collection do
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
   # end
 
   resources :lends
-  
+
   #root 'students#index'
   #resources :students
   #root  'lists#index'
