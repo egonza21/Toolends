@@ -17,10 +17,13 @@ end
 
     @tool = Tool.new(tool_params)
     titlet = tool_params[:title]
-    herr = Tool.find_by(title: titlet)
-    @tool.id = herr.id
-    @tool.title = herr.title
-    @tool.quantity = herr.quantity
+    #herr = Tool.find_by(title: titlet)
+    herr = Tool.where("title like ?", "%#{titlet}%")
+    herr.each do |r|
+      @tool.id = r.id
+      @tool.title = r.title
+      @tool.quantity = r.quantity
+    end
     render :index
 
   end
