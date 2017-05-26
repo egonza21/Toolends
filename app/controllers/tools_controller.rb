@@ -3,7 +3,14 @@ class ToolsController < ApplicationController
 
 
 def index
+  @tool = Tool.all
   @tool = Tool.new
+  if @bandera
+    @bandera = false
+    @tool.quantity = search_tools
+    redirect_to tools_url
+  end
+
 #  @tools = Tool.search(params[:search])
 end
 
@@ -33,17 +40,47 @@ end
     #   end
     # end
   end
+
+
   def search_tools
-    @tool = Tool.where('title = ?', params[:title])
-    @tool.each do |t|
-      return t.quantity
-    end
-    puts "Buscar"
-    redirect_to tools_url
+
+
+    @tool = Tool.new(tool_params)
+    titlet = tool_params[:title]
+    herr = Tool.find_by(title: titlet)
+    @tool.id = herr.id
+    @tool.title = herr.title
+    @tool.quantity = herr.quantity
+    render :index
+
+  #   @valor_titulo = params[:tool][:title]
+  #   puts @valor_titulo
+  #   @tool = Tool.where('title = ?', @valor_titulo)
+  #
+  #   puts "hoa"
+  #
+  # #  puts @tool.quantity
+  # #  params[:tool][:quantity] = @tool.quantity
+  #
+  #   @tool.each do |t|
+  #     @bandera = true
+  #     #@tool.quantity = t.quantity
+  #     puts t.quantity
+  #     params[:tool][:quantity] = t.quantity
+  #
+  #     return t.quantity
+  #   end
+  #   puts "Buscar"
+  #   redirect_to tools_url
+  #   #return @valor
   end
 
   def update_tool
+    @valor_titulo = params[:tool][:title]
+    @tool = Tool.where('title = ?', @valor_titulo)
+    @tool.update({quantity: params[:tool][:quantity]})
     puts "Editar"
+    redirect_to tools_url
   end
 
   def create

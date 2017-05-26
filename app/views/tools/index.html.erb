@@ -32,9 +32,9 @@
   <div class="col-md-6">
     <div class="field">
       <%= form_for @tool do |f| %>
-      <!-- <div class="field">
-        <%= f.text_field :id, placeholder: "Id", autocomplete: "on", class: "form-control"%>
-      </div> -->
+
+        <!--%= f.text_field :id, placeholder: "Id", autocomplete: "on", class: "form-control"%-->
+
         <div class="field">
           <%= f.text_field :title, placeholder: "Nombre", autocomplete: "on", class: "form-control"%>
         </div>
@@ -46,6 +46,9 @@
           <div class="row">
             <div class="col-md-1 field">
               <%= f.submit "Buscar", formaction: search_tool_path ,class:"btn let"%>
+            </div>
+            <div class="col-md-1 field">
+              <%= f.submit "Editar", formaction: edit_tool_path ,class:"btn let"%>
             </div>
 
 
