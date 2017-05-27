@@ -1,6 +1,39 @@
 
-<div class="list-group">
-<% @tools.each do |tool| %>
-   <a href="#" id='select' class="list-group-item"><%= tool.title %><span class="badge"> <%= tool.quantity%> </span></a>
-<%end%>
+
+
+
+<div class="field">
+
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+<ul id="myUL">
+  <% @tools.each do |tool| %>
+   <li><a href="#" class="list-group-item"><%= tool.title %><span class="badge"> <%= tool.quantity %> </span></a></li>
+  <% end %>
+
+</ul>
+
 </div>
+
+<script>
+function myFunction() {
+    console.log("HOLAHOAKJFOFHE");
+    // Declare variables
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>

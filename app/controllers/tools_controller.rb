@@ -10,7 +10,10 @@ def index
 #  @tools = Tool.search(params[:search])
 end
 
-
+def select_tools
+  puts "HOLAHOAKJFOFHE"
+  puts "----------------------------------------------------------------------------------------------------------------"
+end
 
   def search_tools
 
