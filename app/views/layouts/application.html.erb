@@ -7,10 +7,13 @@
     <%= csrf_meta_tags %>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="./../../assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Optional bootstrap theme -->
-    <link rel="stylesheet" href="./../../assets/stylesheets/css/bootstrap-theme.min.css">
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!--link rel="stylesheet" href="../css/navbar.css"-->
@@ -22,10 +25,7 @@
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
       <% end %>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="./../../assets/javascripts/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="./../../assets/javascripts/bootstrap.min.js"></script>
+
       <div style="width:80%; margin:0 auto;">
         <%= yield %>
       </div>

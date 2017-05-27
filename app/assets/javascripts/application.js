@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+// alert('Hola mundo');
+
+// $('#select').click(function() {
+//   console.log("Entro");
+//   alert('select tool');
+// });
