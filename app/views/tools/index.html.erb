@@ -56,7 +56,7 @@
               <%= f.submit "Guardar", name: "Guardar" , class:"btn let"%>
             </div>
 
-          
+
           </div>
 
         </div>
@@ -64,7 +64,9 @@
       <%end%>
     </div>
   </div>
-
+  <div class="col-md-1 field">
+    <button type="submit" name="button" formaction="pick_tool_path">hola</button>
+  </div>
 
   <div class="field">
     <input type="button" value="Prestar herramientas" onClick="window.location = 'lends';"  class="btn let">
@@ -72,3 +74,41 @@
   </div>
   </div>
 </div>
+
+
+
+<form class="field" >
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+  <ul id="myUL">
+    <% @tools.each do |tool| %>
+     <li><a href="#" class="list-group-item"><%= tool.title %><span class="badge"> <%= tool.quantity %> </span></a></li>
+    <% end %>
+
+  </ul>
+   <button type="button">Click Me!</button>
+  <button type="submit" formaction="pick_tool_path"> hola </button>
+</form>
+
+
+<script>
+function myFunction() {
+    console.log("HOLAHOAKJFOFHE");
+    // Declare variables
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>

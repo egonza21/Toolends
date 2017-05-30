@@ -2,18 +2,27 @@ class ToolsController < ApplicationController
 
 
 
-def index
-  @tool = Tool.all
-  @tool = Tool.new
+  def index
+    @tool = Tool.all
+    @tool = Tool.new
 
 
-#  @tools = Tool.search(params[:search])
-end
+  #  @tools = Tool.search(params[:search])
+  end
 
-def select_tools
-  puts "HOLAHOAKJFOFHE"
-  puts "----------------------------------------------------------------------------------------------------------------"
-end
+  def add
+
+    puts "holi "
+    redirect_to lists_url
+    return "hola"
+  end
+
+  def pick_tools
+
+    puts "HOLAHOAKJFOFHE"
+    puts "----------------------------------------------------------------------------------------------------------------"
+    render :index
+  end
 
   def search_tools
 
