@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-md-4 field">
         <%= f.text_field :uid, placeholder: "tagUID", class: "form-control"%>
-        
+
       </div>
       <div class="col-md-1 field">
           <%= f.submit "Buscar", formaction: student_name_path ,class:"btn let"%>
@@ -61,60 +61,21 @@
   <div class="field">
     <!--%= f.text_field :tool_id, placeholder: "Herramienta", class: "form-control"%-->
   </div>
-  <div>
+  <div class="field">
   <!--% @tools.each do |tool| %-->
   <!--div class="field"-->
     <!--%= check_box_tag "@herra[]", tool.id %-->
     <!--%= tool.title %-->
   <!--/div-->
   <!--%end%> -->
-  <tr>
-    <td class="bloque" width="10">&nbsp;</td>
-     <td class="bloque" width="200">
-      <div style="overflow-x:auto;">
-      <table width="540" cellspacing="0" cellpadding="0" border="0">
-        <tbody><tr>
-          <td class="bloque" width="250">
-            <div id="filtertext">&nbsp;</div>
-              <h2 class="titulo" >Herramientas disponibles</h2>
-            <select id="Tools" multiple="multiple" size="10" class="selectMultiple">
-              <% @tools.each do |tool| %>
-              <div class="field">
-                <!--% option value=tool.id tool.title%--> <!--%end%-->
-                <option value = tool.id> <%= tool.title %></option>
-              </div>
-              <%end%>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
-          </td>
-          <td class="bloque" width="40" valign="middle" align="center">
-          <br>
-            <a href="#"> <!--img src="/ei/imagenes/iconos/flechaDer.gif" title="Mover a la Derecha" border="0"--></a>
-          <br>
-            <a href="#"><img src="/images/flechaDer.png" title="Devolver todo" border="0"></a>
-          <br>
-            <a href="#"><img src="/ei/imagenes/iconos/flechaIzq.gif" title="Devolver seleccionadas" border="0"></a>
-          <br>
-          </td>
-          <td class="bloque" width="250">
-            <br>
-              <h2 class="titulo">Herramientas Seleccionadas</h2>
-              <select id="ToolsSelected" multiple="multiple" size="10" class="selectMultiple">
+    <ul id="myUL">
+     <% @tools.each do |tool| %>
+       <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span>  </li>
+     <% end %>
+    </ul>
 
-          </td>
-        </tr>
-        <tr>
-          <td class="bloque field" colspan="3">
-            <input name="regexp" onkeyup="filter.set(this.form.regexp.value)">
-            <input onclick="filter.set(this.form.regexp.value)" value="Buscar" type="button" class="btn let">
-            <input onclick="filter.reset();this.form.regexp.value=''" value="Ver Todos" type="button" class="btn let"><br><br>
-            <p>
-            </p>
-          </td>
-        </tr>
-      </div>
-      </tbody></table>
-    </td>
-  </tr>
 
 
 

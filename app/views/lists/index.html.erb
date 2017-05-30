@@ -1,49 +1,10 @@
 
-
-<form class="field" action="index.html" method="post">
+<div class="field">
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
   <ul id="myUL">
    <% @tools.each do |tool| %>
      <li> <%= link_to tool.title , add_path %> <span  class="badge"> <%= tool.quantity %> </span>  </li>
-<% end %>
-
-
-
+   <% end %>
   </ul>
-  <button type="submit" formaction="pick_tool_path"   >hola</button>
-</form>
-
-
-<script>
-function myFunction() {
-    console.log("HOLAHOAKJFOFHE");
-    // Declare variables
-    var input, filter, ul, li, a, i;
-    input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
-
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
-
-function paint(element, identificador) {
-  element.style.color = "red";
-  console.log(identificador);
-  console.log("Este es el paint");
-
-}
-
-$('#me').click(function () {
-  console.log("Ingreso a la fucnion");
-});
-</script>
+</div>

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get "control", to: "lends#index"
 
-  get "add", to: "tools#add"
+  get "add", to: "lends#add"
   post "pick_tool", to: "tools#pick_tools"
   post "student_name", to: "lends#find_student"
   post "edit_tool", to: "tools#update_tool"

@@ -42,6 +42,24 @@ class LendsController < ApplicationController
     #redirect_to @lend
   end
 
+
+  def add
+    puts "holaaa"
+    hol = params[:name]
+    puts hol
+    @tooll = params[:title]
+    puts @tooll
+    if params[:Hola]
+      puts "entrar al if"
+      puts params[:name]
+
+    end
+    puts "holi "
+    redirect_to lends_url
+    return "hola"
+  end
+
+
       def tag
         #ban = true
         puts "entro"

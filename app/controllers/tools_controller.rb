@@ -10,12 +10,7 @@ class ToolsController < ApplicationController
   #  @tools = Tool.search(params[:search])
   end
 
-  def add
 
-    puts "holi "
-    redirect_to lists_url
-    return "hola"
-  end
 
   def pick_tools
 
