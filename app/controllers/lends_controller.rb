@@ -8,10 +8,11 @@ class LendsController < ApplicationController
     if @bandera
       @student_tag = @lends.uid
       arreglo = [@student_tag]
-      @student_name = Student.where('taguid = ?', @student_tag).select("name")
-      session[:student] = Student.where('taguid = ?', @student_tag)
+      @student_name = Student.where('taguid = ?', @student_tag)
+      #session[:student] = Student.where('taguid = ?', @student_tag)
       @student_name.each do |student|
         @name = student.name
+        session[:id] = student.id
         puts @name
         @bandera = false
         return @name
@@ -25,13 +26,11 @@ class LendsController < ApplicationController
         puts student.id
         puts student.name
         puts "con code-----"
-        #puts @name
-        #return @name
+        
       end
 
       puts "Hola"
 
-      #puts session[:prueba]
 
       @student_ide.update({taguid:session[:prueba]})
       puts "Hola 2"
@@ -112,42 +111,22 @@ class LendsController < ApplicationController
         @name = "Digitar código"
       end
 
-      #@lends = Lend.search(params[:search])
     end
-    def show
 
-    end
 
     def find_lend
       @lend = Lend.where('uid = ?', session[:prueba])
-      puts "Va para el id"
-
-      @id = session[:student]
-      puts "1 ----"
-      puts @id
-      puts "2----"
-      @ad = @id.id
-      puts @ad
-    #  @lend.update({student_id: @id})
-      puts "Hola"
+      @lend.update({student_id: session[:id]})
     end
 
-    def save_tool (tool_id)
-      @lends.tool_id = tool_id
-      #@lends.student_id = student_id
-      @lends.save
-    end
+    # def save_tool (tool_id)
+    #   @lends.tool_id = tool_id
+    #   #@lends.student_id = student_id
+    #   @lends.save
+    # end
 
     def create
-        #@lend = current_student.lends.new(lend_params)
-        puts "Va a guardar"
-
-        puts current_student.id
-        puts session[:student]
-
-
         @lend = current_student.lends.new(lend_params)
-        puts "Va a guardar, guardar..."
         @lend.save
 
         find_lend
