@@ -9,6 +9,7 @@ class LendsController < ApplicationController
       @student_tag = @lends.uid
       arreglo = [@student_tag]
       @student_name = Student.where('taguid = ?', @student_tag).select("name")
+      session[:student] = Student.where('taguid = ?', @student_tag)
       @student_name.each do |student|
         @name = student.name
         puts @name
@@ -20,6 +21,7 @@ class LendsController < ApplicationController
       @student_name = Student.where('code = ?', @student_code).select("name")
       @student_ide = Student.where('code = ?', @student_code)
       @student_ide.each do |student|
+        @student_id = student.id
         puts student.id
         puts student.name
         puts "con code-----"
@@ -116,6 +118,20 @@ class LendsController < ApplicationController
 
     end
 
+    def find_lend
+      @lend = Lend.where('uid = ?', session[:prueba])
+      puts "Va para el id"
+
+      @id = session[:student]
+      puts "1 ----"
+      puts @id
+      puts "2----"
+      @ad = @id.id
+      puts @ad
+    #  @lend.update({student_id: @id})
+      puts "Hola"
+    end
+
     def save_tool (tool_id)
       @lends.tool_id = tool_id
       #@lends.student_id = student_id
@@ -123,8 +139,19 @@ class LendsController < ApplicationController
     end
 
     def create
+        #@lend = current_student.lends.new(lend_params)
+        puts "Va a guardar"
+
+        puts current_student.id
+        puts session[:student]
+
+
         @lend = current_student.lends.new(lend_params)
+        puts "Va a guardar, guardar..."
         @lend.save
+
+        find_lend
+
         redirect_to @lend
     end
 
