@@ -70,6 +70,21 @@
   <!--%end%> -->
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#hide").click(function(){
+        $("ul").hide();
+      });
+      $("#show").click(function(){
+        $("ul").show();
+      });
+    });
+    </script>
+
+    <button id="hide">Ocultar</button>
+    <button id="show">Mostrar</button>
+
     <ul id="myUL">
      <% @tools.each do |tool| %>
        <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span>  </li>

@@ -6,15 +6,15 @@ Rails.application.routes.draw do
 
   devise_scope :student do
     authenticated :student do
-      root 'lists#index', as: :authenticated_root
+      root 'lend_tools#index', as: :authenticated_root
     end
     unauthenticated do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
 
-  get "lists", to: "lists#index"
-
+  #get "lists", to: "lists#index"
+  get "lend_tools", to: "lend_tools#index"
   get "tools", to: "tools#index"
 
   get "control", to: "lends#index"
