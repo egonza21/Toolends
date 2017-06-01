@@ -26,7 +26,7 @@ class LendsController < ApplicationController
         puts student.id
         puts student.name
         puts "con code-----"
-        
+
       end
 
       puts "Hola"
@@ -100,7 +100,7 @@ class LendsController < ApplicationController
 
       @lends = Lend.all
       @lends = Lend.new
-      #@lends.uid = tag
+      @lends.uid = tag
 
       if @lends.uid
         @prueba = [@lends.uid]
@@ -126,6 +126,7 @@ class LendsController < ApplicationController
     # end
 
     def create
+      puts "Entrar al crear"
         @lend = current_student.lends.new(lend_params)
         @lend.save
 
