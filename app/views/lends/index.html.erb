@@ -35,23 +35,21 @@
 
 
 <%= form_for(@lends, remote: true, html: {id: "comments-form", :"data-type" => "json" }) do |f| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4 field">
-        <%= f.text_field :uid, placeholder: "tagUID", class: "form-control"%>
+  <div class="row">
+    <div class="col-sm-8">
+      <%= f.text_field :uid, placeholder: "tagUID", class: "form-control"%>
 
-      </div>
-      <div class="col-sm-1 field">
-          <%= f.submit "Buscar", formaction: student_name_path ,class:"btn let"%>
-      </div>
     </div>
-    <div class="row">
-      <div class="col-sm-4 field">
-        <%= f.text_field :name, placeholder: "Nombre", value: @name,class: "form-control", :readonly => true%>
-      </div>
-      <div class="col-sm-1 field">
-          <%= f.submit "Guardar", class:"btn let", id: "show" %>
-      </div>
+    <div class="col-sm-4">
+          <%= f.submit "Buscar", formaction: student_name_path ,class:"btn let"%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 field">
+      <%= f.text_field :name, placeholder: "Nombre", value: @name,class: "form-control", :readonly => true%>
+    </div>
+    <div class="col-sm-4 field">
+        <%= f.submit "Guardar", class:"btn let", id: "show" %>
     </div>
   </div>
 
@@ -71,9 +69,12 @@
 <!--/div-->
 <!--%end%> -->
 <div class="row">
-    <div class="col-sm-12 field">
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." hidden>
-</div>
+  <div class="col-sm-6">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." hidden>
+  </div>
+  <div class="col-sm-6">
+    <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for names.." hidden>
+  </div>
 </div>
 
 
@@ -83,24 +84,36 @@
     $("#show").click(function(){
       $("ul").show();
       $("#myInput").show();
+      $("#myInput2").show();
       $("#hide").show();
     });
   });
   </script>
 
   <div class="row">
-    <div class="col-sm-12 field">
+    <div class="col-sm-6">
       <ul id="myUL" hidden>
         <% @tools.each do |tool| %>
         <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
         <% end %>
       </ul>
     </div>
+    <div class="col-sm-6">
+      <ul id="myUL2" hidden>
+        <% @tools.each do |tool| %>
+        <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="center-block">
+        <button id="hide" class="btn let" hidden>Generar Prestamo </button>
+      </div>
+    </div>
   </div>
 
-  <button id="hide" hidden> Generar Prestamo </button>
-
-
-
-</div>
+  </div>
 </div>
