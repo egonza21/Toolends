@@ -1,4 +1,6 @@
+<div class="container">
 <h1>Lends</h1>
+
 
  <!--%= form_tag("/lends/index", method: 'get') do %-->
   <!--%= label_tag "Search for:" %-->
@@ -35,24 +37,22 @@
 <%= form_for(@lends, remote: true, html: {id: "comments-form", :"data-type" => "json" }) do |f| %>
   <div class="container">
     <div class="row">
-      <div class="col-md-4 field">
+      <div class="col-sm-4 field">
         <%= f.text_field :uid, placeholder: "tagUID", class: "form-control"%>
 
       </div>
-      <div class="col-md-1 field">
+      <div class="col-sm-1 field">
           <%= f.submit "Buscar", formaction: student_name_path ,class:"btn let"%>
-
-      </div>
-      <div class="col-md-7 field">
-          <%= f.submit "Guardar", class:"btn let", id: "show" %>
-
-      </div>
-      <div class="col-md-4 field">
-        <%= f.text_field :name, placeholder: "Nombre", value: @name,class: "form-control", :readonly => true%>
-
       </div>
     </div>
-
+    <div class="row">
+      <div class="col-sm-4 field">
+        <%= f.text_field :name, placeholder: "Nombre", value: @name,class: "form-control", :readonly => true%>
+      </div>
+      <div class="col-sm-1 field">
+          <%= f.submit "Guardar", class:"btn let", id: "show" %>
+      </div>
+    </div>
   </div>
 
   <div class="field">
@@ -70,32 +70,37 @@
   <!--%= tool.title %-->
 <!--/div-->
 <!--%end%> -->
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+<div class="row">
+    <div class="col-sm-12 field">
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." hidden>
+</div>
+</div>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
   $(document).ready(function(){
-    $("#hide").click(function(){
-      $("ul").hide();
-    });
     $("#show").click(function(){
       $("ul").show();
+      $("#myInput").show();
+      $("#hide").show();
     });
   });
   </script>
 
-  <button id="hide"> Generar Prestamo</button>
-  <button id="show" formaction="create_lend">Registrar</button>
+  <div class="row">
+    <div class="col-sm-12 field">
+      <ul id="myUL" hidden>
+        <% @tools.each do |tool| %>
+        <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
-  <ul id="myUL">
-   <% @tools.each do |tool| %>
-     <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span>  </li>
-   <% end %>
-  </ul>
+  <button id="hide" hidden> Generar Prestamo </button>
 
 
 
-
-
-
+</div>
 </div>

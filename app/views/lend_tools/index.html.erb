@@ -1,10 +1,10 @@
 
-<div class="field">
+<div class="table-responsive">
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
   <ul id="myUL">
-   <% @tools.each do |tool| %>
-     <li> <%= link_to tool.title , add_path %> <span  class="badge"> <%= tool.quantity %> </span>  </li>
-   <% end %>
-  </ul>
+   	<% @tools.each do |tool| %>
+    <li> <%= link_to tool.title , add_path %> <span  class="badge"> <%= tool.quantity %> </span> </li>
+   	<% end %>
+   	</ul>
 </div>

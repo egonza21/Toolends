@@ -100,7 +100,7 @@ class LendsController < ApplicationController
 
       @lends = Lend.all
       @lends = Lend.new
-      @lends.uid = tag
+      #@lends.uid = tag
 
       if @lends.uid
         @prueba = [@lends.uid]
