@@ -126,6 +126,19 @@ label {
 .let{
   color: white;
 }
+
+.estilo{
+  background-color: #333;
+  border: none;
+  outline: none;
+  text-decoration-color: white;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: white;
+  text-transform: uppercase;
+
+}
+
 .large-padding{
   padding: 8px 5px;
 }
@@ -158,4 +171,12 @@ label {
   font-size: 20px;
   padding: 15px 0px 0px 50px;
   color: #0048BA;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.button {
+  position: absolute;
 }
