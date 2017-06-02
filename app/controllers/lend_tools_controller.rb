@@ -75,6 +75,7 @@ class LendToolsController < ApplicationController
 		end
 		@new_quantity_t = @new_quantity_tool.to_s
 		@tool.update({quantity: @new_quantity_t})
+		@lend_tools = LendTool.find(@tool_id)
 		@lend_tools.destroy
 		redirect_to lends_url
 	end
