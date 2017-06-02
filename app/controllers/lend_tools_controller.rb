@@ -58,8 +58,9 @@ class LendToolsController < ApplicationController
 		@lend_tools.save
     puts "holaaa"
 
-		redirect_back(fallback_location: root_path)
-    #redirect_to lends_url
+
+
+    redirect_to lends_url
 
   end
 
