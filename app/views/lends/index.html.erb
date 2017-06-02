@@ -1,5 +1,5 @@
 <div class="container">
-<h1>Lends</h1>
+<h1 align="center">Lends</h1>
 
 
  <!--%= form_tag("/lends/index", method: 'get') do %-->
@@ -70,10 +70,26 @@
 <!--%end%> -->
 <div class="row">
   <div class="col-sm-6">
+    <div class="wrapper">
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." hidden>
+  
+    <ul id="myUL" hidden>
+        <% @tools.each do |tool| %>
+        <li> <%= link_to tool.title , add_path(:name => tool.title, :amount => 1 ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
+        <% end %>
+    </ul>
+  </div>
   </div>
   <div class="col-sm-6">
+    <div class="wrapper">
     <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for names.." hidden>
+  
+    <ul id="myUL2" hidden>
+        <% @tools.each do |tool| %>
+        <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -89,28 +105,11 @@
     });
   });
   </script>
-
-  <div class="row">
-    <div class="col-sm-6">
-      <ul id="myUL" hidden>
-        <% @tools.each do |tool| %>
-        <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="col-sm-6">
-      <ul id="myUL2" hidden>
-        <% @tools.each do |tool| %>
-        <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
   
   <div class="row">
     <div class="col-sm-10">
       <div class="wrapper">
-      <button id="hide" class="estilo" hidden>Generar Prestamo </button>
+      <button id="hide" class="estilo let" hidden="hidden">Generar Prestamo </button>
     </div>
     </div>
   </div>
