@@ -1,23 +1,32 @@
 class LendToolsController < ApplicationController
 	def add
+		name_tool = params[:name]
+		puts name_tool
+		amount = params[:amount]
+		puts amount
 		@bandera2 = true
 		if @bandera2
 			puts "if de bandera"
 			tag_student = session[:prueba]
 			#@lends = Lend.where('uid = ?', session[:prueba])
 			@lends = Lend.last()
-			params[:lend] = @lends
-			# @lends.each do |lend|
-			# 	@lend_id = lend.id
-			# 	puts @lend_id
+			# params[:lend] = @lends
+			# puts params[:lend]
+			puts "Imprimolendprams"
+			@lends_id = @lends.id
+			# @lends.each do |le|
+			# 	@lends_id = le.id
+			# 	puts @lends_id
 			# end
-			puts params[:lend]
+			#puts params[:lend]
 			@bandera2 = false
 		end
 		name_tool = params[:name]
 		@tool = Tool.where('title = ?', name_tool)
 		puts @tool
 		params[:tool] = @tool
+		puts params[:tool]
+		puts "Imprimiotoolparamss"
 		@tool.each do |tool|
 			@tool_id = tool.id
 			puts @tool_id
@@ -36,20 +45,21 @@ class LendToolsController < ApplicationController
 		end
 		@new_quantity_t = @new_quantity_tool.to_s
 		puts @new_quantity_t
-		params[:amount] = 1
-		@uno = 1
+		# params[:amount] = 1
+		# @uno = 1
 		@tool.update({quantity: @new_quantity_t})
 		#@lend_tools = LendTool.new(toolend_params)
 		puts "va para el param"
 		console
 		puts params[:lend]
-		@lend_tools = LendTool.new(toolend_params)
-		@lend_tools.tool = params[:tool]
-		@lend_tools.lend = params[:lend]
+		@lend_tools = LendTool.new(amount: params[:amount], tool_id: @tool_id, lend_id: @lends_id)
+		# @lend_tools.tool = @tool
+		# @lend_tools.lend = @lends
 		@lend_tools.save
     puts "holaaa"
 
-    redirect_to lends_url
+		redirect_back(fallback_location: root_path)
+    #redirect_to lends_url
 
   end
 
