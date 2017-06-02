@@ -4,16 +4,16 @@
 
     <div class="containe r-fluid">
       <div class="navbar-header">
-        <p class="nombre"> TooLends EAFIT </p>
+        <p class="nombre btmicono"> TooLends EAFIT </p>
       </div>
-      
+
       <div class="container-fluid">
 
 
       <ul class="nav navbar-nav navbar-right">
         <% if student_signed_in?%>
           <li><%= link_to  destroy_student_session_path, method: :delete do %>
-            <span class="glyphicon glyphicon-log-in"></span> Cerrar sesión<%end%>
+            <span class="glyphicon glyphicon-log-in "></span> Cerrar sesión<%end%>
           </li>
         <%else%>
         <li><%= link_to  new_student_registration_path do %>

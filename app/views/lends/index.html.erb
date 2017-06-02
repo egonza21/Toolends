@@ -1,5 +1,5 @@
 <div class="container">
-<h1 align="center">Lends</h1>
+<h1 align="center" class="btmicono">Lends</h1>
 
 
  <!--%= form_tag("/lends/index", method: 'get') do %-->
@@ -77,18 +77,18 @@
 <!--%end%> -->
 <div class="row">
   <div class="col-sm-6">
-    <div class="wrapper">
+    <div class="wrapper field">
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." hidden>
 
     <ul id="myUL" hidden>
         <% @tools.each do |tool| %>
-        <li> <%= link_to tool.title , add_path(:name => tool.title, :amount => 1 ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
+        <li class="field"> <%= link_to tool.title , add_path(:name => tool.title, :amount => 1 ), class: "btmi" %> <span  class="badge"> <%= tool.quantity %> </span></li>
         <% end %>
     </ul>
   </div>
   </div>
   <div class="col-sm-6">
-    <div class="wrapper">
+    <div class="wrapper field">
     <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for names.." hidden>
 
     <ul id="myUL2" hidden>
@@ -98,7 +98,7 @@
 <!--% Lend.where(@lends.uid.eql?(:global)).each do |tool| %-->
 <% Tool.where(id:(@lend_tools.joins(:lend, :tool))).each do |tool| %>
 <%if @lends.uid == $global%>
-        <li> <%= link_to tool.title, destroy_path(:name => tool.title) %> </li>
+        <li class="field"> <%= link_to tool.title, destroy_path(:name => tool.title), class: "btmi" %> </li>
         <% end %>
         <% end %>
       </ul>
