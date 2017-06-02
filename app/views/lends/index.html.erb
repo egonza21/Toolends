@@ -33,7 +33,6 @@
 
 <!--%end%-->
 
-
 <%= form_for(@lends, remote: true, html: {id: "comments-form", :"data-type" => "json" }) do |f| %>
   <div class="row">
     <div class="col-sm-8">
@@ -53,6 +52,11 @@
     </div>
   </div>
 
+
+
+
+
+
   <div class="field">
   <!--%= f.text_field :student_id, placeholder: "Código del estudiante", class: "form-control"%-->
   </div>
@@ -61,6 +65,9 @@
   </div>
 
 <%end%>
+
+
+
 <div class="field">
 <!--% @tools.each do |tool| %-->
 <!--div class="field"-->
@@ -75,7 +82,7 @@
 
     <ul id="myUL" hidden>
         <% @tools.each do |tool| %>
-        <li> <%= link_to tool.title , add_path(:name => tool.title, :amount => 1 ), id: "show" %> <span  class="badge"> <%= tool.quantity %> </span></li>
+        <li> <%= link_to tool.title , add_path(:name => tool.title, :amount => 1 ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
         <% end %>
     </ul>
   </div>
@@ -85,8 +92,14 @@
     <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for names.." hidden>
 
     <ul id="myUL2" hidden>
-        <% @tools.each do |tool| %>
-        <li> <%= link_to tool.title , add_path(:name => tool.title ) %> <span  class="badge"> <%= tool.quantity %> </span></li>
+
+
+        <!--% [@tools.where(id:(@lend_tools.joins(:lend, :tool))) , Lend.where('uid = ?' , session[:prueba])].each do |tool| %-->
+<!--% Lend.where(@lends.uid.eql?(:global)).each do |tool| %-->
+<% Tool.where(id:(@lend_tools.joins(:lend, :tool))).each do |tool| %>
+<%if @lends.uid == $global%>
+        <li> <%= link_to tool.title, destroy_path(:name => tool.title) %> </li>
+        <% end %>
         <% end %>
       </ul>
     </div>

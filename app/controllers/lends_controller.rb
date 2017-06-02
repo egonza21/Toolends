@@ -1,7 +1,8 @@
 class LendsController < ApplicationController
 
     before_action :get_tools
-  #  before_action :get_students
+    before_action :get_lend_tools
+    before_action :get_lend
 
   def find_student
 
@@ -82,6 +83,7 @@ class LendsController < ApplicationController
                ban= true
             else
               session[:prueba] = tagUID
+              $global = tagUID
               return tagUID
             end
 
@@ -115,6 +117,7 @@ class LendsController < ApplicationController
 
 
     def find_lend
+      puts session[:prueba]
       @lend = Lend.where('uid = ?', session[:prueba])
       @lend.update({student_id: session[:id]})
     end
@@ -194,6 +197,12 @@ class LendsController < ApplicationController
     end
     def get_tools
       @tools = Tool.all
+    end
+    def get_lend_tools
+      @lend_tools = LendTool.all
+    end
+    def get_lend
+      @lends = Lend.all
     end
     #def get_students
     #  @students = Student.all

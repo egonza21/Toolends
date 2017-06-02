@@ -64,6 +64,21 @@ class LendToolsController < ApplicationController
 
   end
 
+	def destroy
+		name_tool = params[:name]
+		@tool = Tool.where('title = ?', name_tool)
+		@tool.each do |tool|
+			@tool_id = tool.id
+			@quantity_tool = tool.quantity
+			@quantity_t = @quantity_tool.to_i
+			@new_quantity_tool = @quantity_t + 1
+		end
+		@new_quantity_t = @new_quantity_tool.to_s
+		@tool.update({quantity: @new_quantity_t})
+		@lend_tools.destroy
+		redirect_to lends_url
+	end
+
 	def finish
 		@bandera2 = true
 	end

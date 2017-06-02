@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get "control", to: "lends#index"
 
+  get "destroy", to: "lend_tools#destroy"
   get "add", to: "lend_tools#add"
   post "finish_lend", to: "lend_tools#finish"
   post "pick_tool", to: "tools#pick_tools"
