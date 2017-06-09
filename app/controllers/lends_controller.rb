@@ -103,7 +103,7 @@ class LendsController < ApplicationController
 
       @lends = Lend.all
       @lends = Lend.new
-      @lends.uid = tag
+      # @lends.uid = tag
 
       if @lends.uid
         @prueba = [@lends.uid]
@@ -121,6 +121,7 @@ class LendsController < ApplicationController
       puts session[:prueba]
       @lend = Lend.where('uid = ?', session[:prueba])
       @lend.update({student_id: session[:id]})
+
     end
 
     # def save_tool (tool_id)
