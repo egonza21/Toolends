@@ -82,6 +82,7 @@ class LendsController < ApplicationController
             if tagUID.empty?
                ban= true
             else
+              $global = 0
               session[:prueba] = tagUID
               $global = tagUID
               return tagUID
