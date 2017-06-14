@@ -103,7 +103,7 @@ class LendsController < ApplicationController
 
       @lends = Lend.all
       @lends = Lend.new
-      # @lends.uid = tag
+      @lends.uid = tag
 
       if @lends.uid
         @prueba = [@lends.uid]
@@ -135,7 +135,10 @@ class LendsController < ApplicationController
         @lend = current_student.lends.new(lend_params)
         @lend.save
 
-        find_lend
+        #find_lend
+        puts session[:prueba]
+        @lend = Lend.where('uid = ?', session[:prueba]).last
+        @lend.update({student_id: session[:id]})
 
         redirect_to @lend
     end
